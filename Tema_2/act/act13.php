@@ -8,7 +8,7 @@
     class MiClase {
         const constante = "Valor constante";
     }
-    print(MiClase::constante);
+    print(MiClase:constante);
     ?>
 </body>
 </html>

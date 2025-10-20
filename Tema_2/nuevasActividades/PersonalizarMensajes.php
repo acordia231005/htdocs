@@ -7,7 +7,7 @@
 <body>
     <h2>Transforma tu mensaje</h2>
 
-    <form method="post" action="">
+    <form method="post">
         <label for="mensaje">Introduce tu mensaje:</label><br>
         <input type="text" id="mensaje" name="mensaje" required>
         <button type="submit">Transformar</button>

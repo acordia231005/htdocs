@@ -5,7 +5,7 @@
 </head>
 <body>
     <?php
-   const CONSTANTE = 10;
+    define(CONSTANTE, 10);
    $variable = 10;
     echo "El valor de la constante es: " . CONSTANTE;
     echo "<br>";

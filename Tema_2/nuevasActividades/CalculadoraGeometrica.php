@@ -7,7 +7,7 @@
 <body>
     <h2>Calculadora de Formas Geométricas</h2>
 
-    <form method="post" action="">
+    <form method="post">
         <label for="radio">Introduce el radio:</label>
         <input type="text" id="radio" name="radio" required>
         <button type="submit">Calcular</button>

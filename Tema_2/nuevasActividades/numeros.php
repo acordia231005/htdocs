@@ -9,20 +9,15 @@
     <?php
         $numero = 0;
 
-        switch ($numero != NAN) {
-            case $numero === 0:
-                echo "Este numero es Cero";
-                break;
-            
-            case $numero < 0:
-                echo "Este numero es Negativo";
-                break;
-
-            default:
-                echo "Este numero es Positivo";
-                break;
+        if (is_nan($numero)) {
+            echo "El valor no es un número válido.";
+        } elseif ($numero === 0) {
+            echo "Este número es Cero";
+        } elseif ($numero < 0) {
+            echo "Este número es Negativo";
+        } else {
+            echo "Este número es Positivo";
         }
-        
     ?>
 </body>
 </html>

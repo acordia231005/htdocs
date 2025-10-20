@@ -6,7 +6,7 @@
 <body>
     <?php
 
-    const SALUDO = "Hola, Mundo!";
+    define("SALUDO", "Hola, Mundo!");
 
     function mostrarSaludo() {
         echo SALUDO;

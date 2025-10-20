@@ -11,7 +11,12 @@
 
         $multiplicacion = $precioUnitario * $cantidad ;
 
-        echo "El resultado de la multiplicion de $precioUnitario y de $cantidad es $multiplicacion";
+        printf(
+            "El resultado de la multiplicación de %d y %d es %.2f",
+            $precioUnitario,
+            $cantidad,
+            $multiplicacion
+        );
     ?>
 </body>
 </html>
