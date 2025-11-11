@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+    <h1>Perfil de Usuario</h1>
+    <form action="procesar_perfil.php" method="POST">
+        Nombre: <input type="text" name="nombre" required><br>
+        Correo: <input type="email" name="correo" required><br>
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>

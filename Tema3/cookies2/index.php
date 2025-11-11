@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Seleccione su Idioma</h1>
-    <form action="configurar_idioma.php" method="post">
+    <form action="destino.php" method="post">
         <label for="idioma">Idioma:</label>
         <select name="idioma" id="idioma">
             <option value="es">Español</option>
