@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Figuras</title>
+</head>
+<body>
+    <h1>Formulario de Figuras</h1>
+    <form action="procesar_area.php" method="post">
+        <p>Seleccione la figura:</p>
+        <label for="figura_circulo">
+            <input type="radio" id="figura_circulo" name="figura" value="circulo" required> Círculo
+        </label>
+        <label for="figura_triangulo">
+            <input type="radio" id="figura_triangulo" name="figura" value="triangulo" required> Triángulo
+        </label>
+
+        <h3>Datos para el Círculo</h3>
+        <label for="radio">Radio:</label>
+        <input type="number" id="radio" name="radio"><br><br>
+
+        <h3>Datos para el Triángulo</h3>
+        <label for="base">Base:</label>
+        <input type="number" id="base" name="base"><br><br>
+
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" name="altura"><br><br>
+
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+</html>
