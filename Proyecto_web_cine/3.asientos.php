@@ -8,7 +8,6 @@ if (!isset($_SESSION["usuario"]) || !isset($_SESSION["password"])) {
 
 $cineSeleccionado = isset($_COOKIE["cine"]) ? $_COOKIE["cine"] : "No seleccionado";
 
-
 echo "<h2>Hola " . $_SESSION["usuario"] . ", selecciona un asiento</h2>";
 echo "<p>Cine seleccionado: " . $cineSeleccionado . "</p>";
 ?>

@@ -28,8 +28,9 @@ try {
 
     $_SESSION["usuario"] = $usuario;
     $_SESSION["password"] = $password;
-
-    setcookie("cine", $cine, time() + 3600);
+    $_SESSION["email"] = $email;
+    
+    setcookie("cine", $cine, time() + 3600 * 24);
 
     echo "<h2>Bienvenido $usuario</h2>";
     echo "<p>Sesión iniciada correctamente.</p>";

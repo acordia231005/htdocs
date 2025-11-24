@@ -1,21 +1,28 @@
 <?php
-$validaciones = [
-    "Antonio" => ["asiento" => 1, "cine" => "los_arcos"],
-    "Noelia" => ["asiento" => 2, "cine" => "cine_alcores"],
-    "Pepe" => ["asiento" => 3, "cine" => "los_arcos"],
-    "Sofia" => ["asiento" => 4, "cine" => "cine_nervion"]
-];
 
-$usuario = $_GET['usuario'] ?? '';
-$asiento = (int)($_GET['asiento'] ?? 0);
-$cine = $_GET['cine'] ?? '';
+$usuario_real = $_SESSION['usuario'] ?? '';
+$asiento_real = $_SESSION['asiento'] ?? '';
+$cine_real    = $_SESSION['cine'] ?? '';
 
-if (!isset($validaciones[$usuario]) ||
-    $validaciones[$usuario]['asiento'] !== $asiento ||
-    $validaciones[$usuario]['cine'] !== $cine) {
-    header("Location: inicio.php?error=Entrada inválida");
+$usuario_qr = $_GET['usuario'] ?? '';
+$asiento_qr = $_GET['asiento'] ?? '';
+$cine_qr    = $_GET['cine'] ?? '';
+
+if (!$usuario_real || !$asiento_real || !$cine_real) {
+    header("Location: inicio.php?error=Sesion_incompleta");
     exit;
-} else {
-    echo "Entrada válida para $usuario, asiento $asiento en $cine";
 }
-?>
+
+if ($usuario_real == $usuario_qr &&
+    $asiento_real == $asiento_qr &&
+    $cine_real == $cine_qr) {
+
+    echo "<h2>Entrada válida</h2>";
+    echo "Usuario: $usuario_qr <br>";
+    echo "Asiento: $asiento_qr <br>";
+    echo "Cine: $cine_qr <br>";
+
+} else {
+    header("Location: inicio.php?error=Entrada_incorrecta");
+    exit;
+}
