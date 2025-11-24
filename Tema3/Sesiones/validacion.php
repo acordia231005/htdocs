@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
 }elseif(!preg_match('/^[a-zA-Z0-9]+$/',$_POST['poblacion'])){
 
-    $_SESSION["mensaje"] = "Debes poner un publo real.";
+    $_SESSION["mensaje"] = "Debes poner un pueblo real.";
     header("Location: formulario.php");
     exit();
 

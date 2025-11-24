@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION["usuario"]) || !isset($_SESSION["password"])) {
@@ -13,7 +12,8 @@ $cineSeleccionado = isset($_COOKIE["cine"]) ? $_COOKIE["cine"] : "No seleccionad
 echo "<h2>Hola " . $_SESSION["usuario"] . ", selecciona un asiento</h2>";
 echo "<p>Cine seleccionado: " . $cineSeleccionado . "</p>";
 ?>
-<html>
+
+<html lang="es">
 <head>
     <title>asientos</title>
     <style>

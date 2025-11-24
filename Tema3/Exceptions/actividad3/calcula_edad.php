@@ -13,9 +13,9 @@ try {
     $edad = $_POST['edad'];
 
     if(is_numeric($edad) && $edad >= 18){
-        echo "Eres mayo de edad. Puedes entrar."
+        echo "Eres mayo de edad. Puedes entrar.";
     }else {
-        echo "Eres menor de edad. Acceso denegado"
+        echo "Eres menor de edad. Acceso denegado";
     }
 }
 } catch (exception $ex) {
