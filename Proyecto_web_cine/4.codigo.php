@@ -1,47 +1,31 @@
 <?php
 session_start();
-
-require __DIR__ . '/vendor/autoload.php';
-
-use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Writer\PngWriter;
+include  'phpqrcode/qrlib.php';
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: inicio.php?error=Sesión no iniciada");
-    exit();
+    header('Location: inicio.php?error=Debe iniciar sesión');
+    exit;
 }
+
 
 $usuario = $_SESSION['usuario'];
-$asiento = $_GET['asiento'] ?? null;
-$cine = $_COOKIE['cine'] ?? null;
+$cine = $_SESSION['cine'];
+$asiento = $_GET['asiento'] ?? '';
 
-if (!$asiento || !$cine) {
-    die("Faltan datos para generar el QR.");
+if (!$asiento) {
+    echo "Asiento no seleccionado.";
+    exit;
 }
 
-$urlEntrada = "http://localhost/proyecto/entrada.php?nombre=$usuario&asiento=$asiento&cine=$cine";
+$data = "http://localhost/proyecto/entrada.php?usuario=$usuario&asiento=$asiento&cine=$cine";
+$tempDir = sys_get_temp_dir();
+$filename = "$tempDir/qr_{$usuario}_{$asiento}.png";
 
-$qr = QrCode::create($urlEntrada)
-    ->setSize(300)
-    ->setMargin(10);
+QRcode::png($data, $filename);
 
-$writer = new PngWriter();
-$result = $writer->write($qr);
-
-$qrFile = __DIR__ . "/qr_$usuario.png";
-$result->saveToFile($qrFile);
-
+echo "<h2>Entrada para $usuario</h2>";
+echo "Cine: $cine <br> Asiento: $asiento <br>";
+echo "<img src='data:image/png;base64,".base64_encode(file_get_contents($filename))."'><br>";
+echo "<a href='codigopdf.php?usuario=$usuario&asiento=$asiento&cine=$cine'>Descargar PDF</a><br>";
+echo "<a href='codigocorreo.php?usuario=$usuario&asiento=$asiento&cine=$cine'>Enviar por correo</a><br>";
 ?>
-<h2>Tu entrada</h2>
-
-<p>Usuario: <?= htmlspecialchars($usuario) ?></p>
-<p>Asiento: <?= htmlspecialchars($asiento) ?></p>
-<p>Cine: <?= htmlspecialchars($cine) ?></p>
-
-<img src="qr_<?= $usuario ?>.png" alt="Código QR">
-
-<br><br>
-
-<a href="pdf.php?qr=<?= urlencode("qr_$usuario.png") ?>&usuario=<?= $usuario ?>&asiento=<?= $asiento ?>&cine=<?= $cine ?>">Descargar en PDF</a><br><br>
-
-<a href="codigocorreo.php?qr=<?= urlencode("qr_$usuario.png") ?>&usuario=<?= $usuario ?>&asiento=<?= $asiento ?>&cine=<?= $cine ?>">Enviar entrada por correo electrónico</a>

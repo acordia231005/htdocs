@@ -9,10 +9,6 @@
 
 <?php
 
-    if(){
-
-    }
-
 ?>
 
                 no esta terminado
