@@ -31,4 +31,5 @@ echo "Cine: $cine <br><br>";
 echo "<img src='$nombreArchivo'><br><br>";
 
 echo "<a href='5.codigopdf.php'>Descargar en PDF</a><br><br>";
-echo "<a href='6.codigocorreo.php'>Enviar entrada por correo electrónico</a>";
+echo "<a href='6.codigocorreo.php'>Enviar entrada por correo electrónico</a><br>";
+echo "<a href='7.entrada.php?usuario=$usuario&asiento=$asiento&cine=$cine'>Entrada</a>";

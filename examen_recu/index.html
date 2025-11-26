@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Formulario de libros</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: .5rem;
+            text-align: left;
+        }
+        thead th {
+            background: #f3f3f3;
+        }
+        h1 {
+            margin-bottom: 0.2rem;
+        }
+        p {
+            margin-top: 0.2rem;
+        }
+        button {
+            padding: .5rem 1rem;
+            border-radius: 4px;
+            border: 1px solid #666;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Título de la página -->
+    <h1>Formulario: Lista de libros</h1>
+    <p>Introduce al menos <strong>4 libros</strong> con título, año y número de páginas.</p>
+
+    <!--
+        Formulario que envía los datos al script procesar.php
+        Se usa el método POST para no mostrar los datos en la URL
+    -->
+    <form action="procesar.php" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Año</th>
+                    <th>Páginas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--
+                    Cada fila representa un libro.
+                    Se usan nombres de campo como arrays: titulo[], anio[], paginas[]
+                    para poder recibir todos los libros juntos en PHP.
+                -->
+                <tr>
+                    <td>
+                        <input type="text" name="titulo[]" required>
+                    </td>
+                    <td>
+                        <input type="number" name="anio[]" min="1800" max="2100" required>
+                    </td>
+                    <td>
+                        <input type="number" name="paginas[]" min="1" max="3000" required>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <input type="text" name="titulo[]" required>
+                    </td>
+                    <td>
+                        <input type="number" name="anio[]" min="1800" max="2100" required>
+                    </td>
+                    <td>
+                        <input type="number" name="paginas[]" min="1" max="3000" required>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <input type="text" name="titulo[]" required>
+                    </td>
+                    <td>
+                        <input type="number" name="anio[]" min="1800" max="2100" required>
+                    </td>
+                    <td>
+                        <input type="number" name="paginas[]" min="1" max="3000" required>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <input type="text" name="titulo[]" required>
+                    </td>
+                    <td>
+                        <input type="number" name="anio[]" min="1800" max="2100" required>
+                    </td>
+                    <td>
+                        <input type="number" name="paginas[]" min="1" max="3000" required>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- Botón de envío del formulario -->
+        <p style="margin-top: 1rem;">
+            <button type="submit">Evaluar disponibilidad</button>
+        </p>
+    </form>
+</body>
+</html>

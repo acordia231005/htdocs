@@ -1,37 +1,45 @@
 <?php
 session_start();
-require_once __DIR__ . "/phpmailer/src/PHPMailer.php";
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
+if (!isset($_SESSION['usuario'])) {
+    header("Location: inicio.php?error=Debe iniciar sesión");
+    exit;
+}
 
 $usuario = $_SESSION['usuario'];
-$cine = $_COOKIE['cine'];
-$asiento = $_COOKIE['asiento'];
-$email = $_SESSION['email'];
+$cine = $_COOKIE['cine'] ?? '';
+$asiento = $_COOKIE['asiento'] ?? '';
 
-$mail = new PHPMailer(true);
+$qrFile = "qr.png";
 
-try {
+
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
+    $mail->Host       = 'sandbox.smtp.mailtrap.io';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'TU_EMAIL@gmail.com';
-    $mail->Password   = 'TU_CONTRASEÑA_APP'; // no tu contraseña normal
-    $mail->SMTPSecure = 'tls';
-    $mail->Port       = 587;
+    $mail->Username   = '7ed474a18fe8fb';
+    $mail->Password   = 'a0b56b35cd2032';
+    $mail->Port       = 2525;
 
-    $mail->setFrom('TU_EMAIL@gmail.com', 'Cine');
-    $mail->addAddress('DESTINO@gmail.com');
+    $mail->setFrom('cine@gmail.com', 'Entradas Cine');
+    $mail->addAddress('andrescortesdiaz2005@gmail.com');
+
+    if (file_exists($qrFile)) {
+        $mail->addAttachment($qrFile);
+    }
 
     $mail->isHTML(true);
     $mail->Subject = 'Tu entrada de cine';
-    $mail->Body    = 'Usuario: '.$usuario.'<br>Asiento: '.$asiento.'<br>Cine: '.$cine;
 
-    $mail->send();
-    echo 'Correo enviado correctamente';
-} catch (Exception $e) {
-    echo "Error al enviar correo: {$mail->ErrorInfo}";
+    $mail->Body = "
+        <h2>Entrada de cine</h2>
+        <p><strong>Usuario:</strong> $usuario</p>
+        <p><strong>Cine:</strong> $cine</p>
+        <p><strong>Asiento:</strong> $asiento</p>
+        <p>Tu entrada con QR está adjunta a este correo.</p>
+    ";
+
+if(mail($to, $subject, $message, $headers)){
+    echo "Correo enviado correctamente.";
+} else {
+    echo "Error al enviar el correo.";
 }
-?>
