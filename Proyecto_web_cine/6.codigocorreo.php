@@ -1,20 +1,24 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario'])) {
-    header("Location: inicio.php?error=Debe iniciar sesión");
-    exit;
-}
+// Incluir PHPMailer manualmente
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/Exception.php';
 
-$usuario = $_SESSION['usuario'];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$usuario = $_SESSION['usuario'] ?? '';
 $cine = $_COOKIE['cine'] ?? '';
 $asiento = $_COOKIE['asiento'] ?? '';
-
 $qrFile = "qr.png";
 
+$mail = new PHPMailer(true);
 
+try {
     $mail->isSMTP();
-    $mail->Host       = 'sandbox.smtp.mailtrap.io';
+    $mail->Host       ='sandbox.smtp.mailtrap.io';
     $mail->SMTPAuth   = true;
     $mail->Username   = '7ed474a18fe8fb';
     $mail->Password   = 'a0b56b35cd2032';
@@ -29,7 +33,6 @@ $qrFile = "qr.png";
 
     $mail->isHTML(true);
     $mail->Subject = 'Tu entrada de cine';
-
     $mail->Body = "
         <h2>Entrada de cine</h2>
         <p><strong>Usuario:</strong> $usuario</p>
@@ -38,8 +41,8 @@ $qrFile = "qr.png";
         <p>Tu entrada con QR está adjunta a este correo.</p>
     ";
 
-if(mail($to, $subject, $message, $headers)){
+    $mail->send();
     echo "Correo enviado correctamente.";
-} else {
-    echo "Error al enviar el correo.";
+} catch (Exception $e) {
+    echo "Error al enviar el correo: {$mail->ErrorInfo}";
 }
