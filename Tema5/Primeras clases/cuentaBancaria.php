@@ -64,9 +64,7 @@ class CuentaBancaria{
         return $this->salidas;
     }
 
-    public function __destruct()
-    {
-
+    public function __destruct(){
         echo "<br>Cuenta de {$this->usuario} cerrada.<br>";
     }
 }

@@ -9,7 +9,7 @@ class Alumnado{
     private $notas;
 
     //constructor.
-    public function __construct($nombre, $apellido, $year, $numeroMatricula, $notas){
+    public function __construct($nombre, $apellido, $year, $numeroMatricula){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->year = $year;
@@ -59,15 +59,48 @@ class Alumnado{
     //Metodo calcular nota final.
     public function calcularNotasFinal($modulo){
 
+        if (isset($this->notas[$modulo])){
+        $evaluacion1 = $this->notas[$modulo][0];  
+        $evaluacion2 = $this->notas[$modulo][1];  
+
+        if ($evaluacion1 != null && $evaluacion2 != null) {
+            $notaFinal = ($evaluacion1 + $evaluacion2) / 2;
+        }else {
+            $notaFinal = null;
+        }
+    }
+        return $notaFinal;
     }
 
     //Metodo obtener nota.
     public function obtenerNota($modulo, $evaluacion){
-
+        if (isset($this->notas[$modulo]) && ($evaluacion == 1 || $evaluacion = 2)) {
+            $nota = $this->notas[$modulo][$evaluacion - 1];
+        }else {
+            $nota = null;
+        }
+        return $nota;
     }
 
     //Metodo asignar nota.
     public function asignarNota($modulo, $evaluacion, $nota){
-    
+        if (isset($this->notas[$modulo]) && ($evaluacion == 1 || $evaluacion = 2) && ($nota >=0 && $nota <= 10)) {
+            $this->notas[$modulo][$evaluacion - 1] = $nota;
+            return true;
+        }else {
+            return false;
+        }
     }
 }
+
+// creamos alumnado 
+$alumno = new Alumnado("Pepe", "garcia", 2025, "DAW25");
+$alumno->asignarNota("DWES", 1, 7);
+$alumno->asignarNota("DWES", 2, 6);
+$alumno->asignarNota("DWEC", 1, 9);
+$alumno->asignarNota("DI", 2, 8);
+
+// Obtener nota
+echo "La nota de la primera evaluacion de DWES es: " .$alumno->obtenerNota("DWEC", 1); 
+
+echo "<br>Nota Final: " .$alumno->calcularNotasFinal("DWEC");
