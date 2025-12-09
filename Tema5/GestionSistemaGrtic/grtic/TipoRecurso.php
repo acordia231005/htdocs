@@ -1,22 +1,25 @@
 <?php
 namespace grtic;
-class TipoRecurso{
-    private $nombreRecurso;
 
-    public function __construct($nombreRecurso){
-        $this->nombreRecurso = $nombreRecurso;
+class TipoRecurso {
+    private string $nombre;
+    
+    public function __construct(string $nombre) {
+        $this->nombre = $nombre;
     }
-
-    public function getNombreRecurso(){
-        return $this->nombreRecurso;
+    
+    // Getters y Setters
+    public function getNombre(): string {
+        return $this->nombre;
     }
-
-    public function setNombreRecurso($nombreRecurso){
-        $this->nombreRecurso = $nombreRecurso;
+    
+    public function setNombre(string $nombre): void {
+        $this->nombre = $nombre;
     }
-
-    public function __toString(){
-        return "Nombre del recurso: " . $this->nombreRecurso;
+    
+    // Método __toString
+    public function __toString(): string {
+        return "Tipo de Recurso: {$this->nombre}";
     }
-
 }
+?>

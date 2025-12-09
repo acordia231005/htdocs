@@ -1,41 +1,46 @@
 <?php
 namespace grtic;
-class Usuario{
-    private $nombreCompleto;
-    private $nombreUsuario; 
-    private $password;
 
-    public function __construct($nombreCompleto, $nombreUsuario){
-        $this->nombreCompleto = $nombreCompleto;
+class Usuario {
+    private string $nombre;
+    private string $nombreUsuario;
+    private string $contrasena;
+    
+    public function __construct(string $nombre, string $nombreUsuario, string $contrasena) {
+        $this->nombre = $nombre;
         $this->nombreUsuario = $nombreUsuario;
+        $this->contrasena = $contrasena;
     }
-
-    public function getNombreCompleto(){
-        return $this->nombreCompleto;
+    
+    // Getters
+    public function getNombre(): string {
+        return $this->nombre;
     }
-
-    public function getNombreUsuario(){
+    
+    public function getNombreUsuario(): string {
         return $this->nombreUsuario;
     }
-
-    public function getPassword(){
-        return $this->password;
+    
+    public function getContrasena(): string {
+        return $this->contrasena;
     }
-
-    public function setNombreCompleto($nombreCompleto){
-        $this->nombreCompleto = $nombreCompleto;
+    
+    // Setters
+    public function setNombre(string $nombre): void {
+        $this->nombre = $nombre;
     }
-
-    public function setNombreUsuario($nombreUsuario){
+    
+    public function setNombreUsuario(string $nombreUsuario): void {
         $this->nombreUsuario = $nombreUsuario;
     }
-
-    public function setPassword($password){
-        $this->password = $password;
+    
+    public function setContrasena(string $contrasena): void {
+        $this->contrasena = $contrasena;
     }
-
-    public function __toString(){
-      return $this->getNombreCompleto() 
-                . " (Login: " . $this->getNombreUsuario() . ")";
+    
+    // Método __toString
+    public function __toString(): string {
+        return "Usuario: {$this->nombre} (Login: {$this->nombreUsuario})";
     }
 }
+?>

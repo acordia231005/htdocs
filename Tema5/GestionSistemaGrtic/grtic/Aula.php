@@ -25,7 +25,7 @@ class Aula extends TipoRecurso{
         $this->tipoAula = $tipoAula;
     }
 
-    public function __toString() {
+    public function __toString(): string {
         return parent::__toString() . "| Ubicacion: " . $this->Ubicacion . "| Tipo de aula: " . $this->tipoAula;
     }
 
