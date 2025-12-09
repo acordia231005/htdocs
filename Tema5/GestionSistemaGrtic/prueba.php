@@ -35,7 +35,7 @@ echo "Nombre de login de usuario2: " . $usuario2->getNombreUsuario() . "<br>";
 
 // Probar setters
 $usuario1->setNombreUsuario("Ana García Martínez");
-$usuario1->setPassword("nuevoPass2024");
+$usuario1->setContrasena("nuevoPass2024");
 
 echo "<br><strong>Después de modificar con setters:</strong><br>";
 echo "Usuario 1 modificado: " . $usuario1 . "<br>";
@@ -53,7 +53,7 @@ echo "TipoRecurso 1: " . $tipoPortatil . "<br>";
 echo "TipoRecurso 2: " . $tipoAltavoz . "<br>";
 
 // Probar modificación
-$tipoPortatil->setNombreRecurso("Portátil Gaming");
+$tipoPortatil->setNombre("Portátil Gaming");
 echo "TipoRecurso 1 modificado: " . $tipoPortatil . "<br>";
 
 // ============================================
@@ -62,8 +62,8 @@ echo "TipoRecurso 1 modificado: " . $tipoPortatil . "<br>";
 echo "<h3>3. Prueba de la Clase Aula (Herencia de TipoRecurso)</h3>";
 
 // Crear aulas
-$aula1 = new Aula("Aula Informática", "Planta Baja", "Sala Ordenadores");
-$aula2 = new Aula("Laboratorio Ciencias", "Primera Planta", "Laboratorio");
+$aula1 = new Aula( "Planta Baja", "Aula Informática");
+$aula2 = new Aula( "Primera Planta", "Laboratorio Ciencias");
 
 echo "Aula 1: " . $aula1 . "<br>";
 echo "Aula 2: " . $aula2 . "<br>";
@@ -106,9 +106,9 @@ echo "<h3>5. Prueba Adicional: Lista de Recursos</h3>";
 
 $recursos = [
     new Recurso("portatil02", new TipoRecurso("Portátil")),
-    new Recurso("aulaMusica", new Aula("Aula de Música", "Planta Baja", "Aula Especial")),
+    new Recurso("aulaMusica", new Aula( "Planta Baja", "Aula de Música")),
     new Recurso("proyector01", new TipoRecurso("Proyector")),
-    new Recurso("labQuimica", new Aula("Laboratorio Química", "Primera Planta", "Laboratorio"))
+    new Recurso("labQuimica", new Aula( "Primera Planta", "Laboratorio Química"))
 ];
 
 echo "<strong>Listado completo de recursos:</strong><br>";
