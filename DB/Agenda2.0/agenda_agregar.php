@@ -23,7 +23,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 try {
     $pdo = conectar();
-    $sql = "INSERT INTO agenda (nombreContacto, apellidosContacto, emailContacto, tfnoContacto) 
+    $sql = "INSERT INTO agenda (nombre, apellidos, correo, telefono) 
             VALUES (:nombre, :apellidos, :email, :telefono)";
 
     $stmt = $pdo->prepare($sql);
