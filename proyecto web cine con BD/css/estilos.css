@@ -1,0 +1,261 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #222; /* texto oscuro para que contraste */
+}
+
+/* ===== TITULOS MEJORADOS ===== */
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Título principal tipo cine */
+h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ffcc00, #ff5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Subtítulos */
+h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    position: relative;
+}
+
+/* Línea decorativa debajo */
+h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* h3 más suave */
+h3 {
+    color: #e0e0e0;
+}
+
+h1, h2 {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(8px);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* ===== CARDS (CINES) ===== */
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+.card h5 {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    border-radius: 25px !important;
+    padding: 8px 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #00c853, #69f0ae);
+    border: none;
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #2979ff, #00c6ff);
+    border: none;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #d50000, #ff1744);
+    border: none;
+}
+
+/* ===== INPUTS ===== */
+input, select {
+    border-radius: 12px !important;
+    border: none !important;
+    padding: 10px !important;
+    background: rgba(255,255,255,0.1) !important;
+    color: white !important;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+/* ===== TABLA ===== */
+table {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th {
+    background: rgba(0,0,0,0.5);
+}
+
+td, th {
+    text-align: center;
+    padding: 10px;
+}
+
+/* ===== ALERTAS ===== */
+.alert {
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+/* ===== QR ===== */
+img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* ===== ANIMACIÓN ENTRADA ===== */
+.container {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TEXTO GENERAL */
+body {
+    color: #222;
+}
+
+/* TITULOS */
+h1, h2, h3 {
+    color: #111;
+}
+
+/* PÁRRAFOS */
+p {
+    color: #333;
+}
+
+/* NAVBAR TEXTO */
+.navbar a {
+    color: #111 !important;
+}
+
+/* CARDS */
+.card {
+    background: #ffffff;
+    color: #222;
+}
+
+/* INPUTS */
+input, select {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+/* TABLA */
+table {
+    background: white;
+    color: #222;
+}
+
+.asientos {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.seat:hover {
+    transform: scale(1.1);
+}
+
+.seat.ocupado {
+    background: #e53935;
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background: #ff9800;
+}
+
+.header {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white !important;
+    background: linear-gradient(90deg, #000, #333);
+    padding: 10px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+}
+
+.footer {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #666;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+}
