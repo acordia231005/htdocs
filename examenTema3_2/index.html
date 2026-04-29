@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Clima</title>
+    <style>
+        body { font-family: sans-serif; max-width: 480px; margin: 2rem auto; }
+        label { display: inline-block; width: 120px; }
+        input[type="number"] { width: 100px; padding: .3rem; }
+        .fila { margin-bottom: .8rem; }
+        button { margin-top: 1rem; padding: .5rem 1.2rem; }
+    </style>
+</head>
+<body>
+    <h1>🌤️ Registro de Temperaturas</h1>
+    <p>Introduce las temperaturas de los últimos <strong>5 días</strong> para obtener el pronóstico.</p>
+
+    <!--
+        Formulario que envía los datos por POST a procesar.php.
+        Cada campo corresponde a la temperatura de un día concreto.
+    -->
+    <form action="procesar.php" method="post">
+
+        <div class="fila">
+            <label for="dia1">Día 1 (°C):</label>
+            <input type="number" id="dia1" name="dia1" step="0.1" required>
+        </div>
+
+        <div class="fila">
+            <label for="dia2">Día 2 (°C):</label>
+            <input type="number" id="dia2" name="dia2" step="0.1" required>
+        </div>
+
+        <div class="fila">
+            <label for="dia3">Día 3 (°C):</label>
+            <input type="number" id="dia3" name="dia3" step="0.1" required>
+        </div>
+
+        <div class="fila">
+            <label for="dia4">Día 4 (°C):</label>
+            <input type="number" id="dia4" name="dia4" step="0.1" required>
+        </div>
+
+        <div class="fila">
+            <label for="dia5">Día 5 (°C):</label>
+            <input type="number" id="dia5" name="dia5" step="0.1" required>
+        </div>
+
+        <button type="submit">Calcular Pronóstico</button>
+    </form>
+</body>
+</html>

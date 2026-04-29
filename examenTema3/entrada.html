@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Entrada de películas</title>
+  <style>
+    /* Estilos generales de la página */
+    body { font-family: sans-serif; max-width: 760px; margin: 2rem auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: .5rem; text-align: left; }
+    thead th { background: #f3f3f3; }
+  </style>
+</head>
+<body>
+  <h1>🎬 Formulario: Lista de películas</h1>
+  <p>Introduce al menos <strong>4 películas</strong> con título, año y duración (min).</p>
+
+  <!--
+    El formulario envía los datos mediante POST a clasificar.php.
+    Los campos usan name="titulo[]", name="anio[]" y name="duracion[]"
+    para que PHP los reciba como arrays.
+  -->
+  <form action="clasificar.php" method="post">
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Año</th>
+          <th>Duración (min)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Fila 1 -->
+        <tr>
+          <td><input type="text"   name="titulo[]"   required placeholder="Nombre de la película"></td>
+          <td><input type="number" name="anio[]"     min="1888" max="2100" required placeholder="Ej: 2023"></td>
+          <td><input type="number" name="duracion[]" min="1"    max="600"  required placeholder="Ej: 135"></td>
+        </tr>
+        <!-- Fila 2 -->
+        <tr>
+          <td><input type="text"   name="titulo[]"   required placeholder="Nombre de la película"></td>
+          <td><input type="number" name="anio[]"     min="1888" max="2100" required placeholder="Ej: 1998"></td>
+          <td><input type="number" name="duracion[]" min="1"    max="600"  required placeholder="Ej: 90"></td>
+        </tr>
+        <!-- Fila 3 -->
+        <tr>
+          <td><input type="text"   name="titulo[]"   required placeholder="Nombre de la película"></td>
+          <td><input type="number" name="anio[]"     min="1888" max="2100" required placeholder="Ej: 2015"></td>
+          <td><input type="number" name="duracion[]" min="1"    max="600"  required placeholder="Ej: 110"></td>
+        </tr>
+        <!-- Fila 4 -->
+        <tr>
+          <td><input type="text"   name="titulo[]"   required placeholder="Nombre de la película"></td>
+          <td><input type="number" name="anio[]"     min="1888" max="2100" required placeholder="Ej: 2024"></td>
+          <td><input type="number" name="duracion[]" min="1"    max="600"  required placeholder="Ej: 145"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Botón de envío del formulario -->
+    <p style="margin-top:1rem">
+      <button type="submit">Clasificar películas</button>
+    </p>
+  </form>
+</body>
+</html>

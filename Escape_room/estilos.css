@@ -1,0 +1,85 @@
+  body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: var(--color-texto);
+    margin: 0;
+    padding: 20px;
+    background-color: aqua;
+  }
+  
+  .container {
+    max-width: 850px;
+    margin: auto;
+    background:  coral;
+    padding: 30px;
+    border-radius: var(--radio);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  }
+  
+  header h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 28px;
+  }
+  
+  header p {
+    text-align: center;
+    margin-top: 0;
+    color: #555;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--color-primario);
+    color: white;
+    border-radius: var(--radio);
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+  }
+  
+  .btn:hover {
+    background: var(--color-primario-hover);
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: var(--radio);
+    border: 1px solid #ccc;
+    margin: 8px 0 12px;
+    box-sizing: border-box;
+  }
+  
+  .error {
+    color: var(--color-error);
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .pista {
+    background: var(--color-pista-bg);
+    border-left: 4px solid var(--color-pista-borde);
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+  
+  .acciones {
+    display: flex;
+    gap: 10px;
+  }
+  
+  footer {
+    margin-top: 25px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+  }
